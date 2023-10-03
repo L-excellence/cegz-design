@@ -6,4 +6,6 @@
 
 export { default as ClickAwayListener } from "./ClickAwayListener";
 
+export { default as VirtualList } from "./VirtualList";
+
 export { default as Popover } from "./Popover";
