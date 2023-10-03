@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+    "module": "ESNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ] /* Specify library files to be included in the compilation. */,
+    "noEmit": false /* 不输出生成的文件，包含 类型文件、编译后的 .js 文件。 */,
+    "outDir": "./es" /* 输出目录 */,
+    "allowJs": true /* 允许编辑 JS，同时也是一个输出生成 JS 文件的选项，当不想通过 ts 输出 JS 文件时设置为 false */,
+    "checkJs": true /* 校验 JS，当 allowJs = false 时，此值必须为 false */,
+    "declaration": true /* 输出生成的类型文件 '.d.ts' file. */,
+    "declarationDir": "types" /* 类型文件生成的目录 */,
+    "jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
+    // "strictNullChecks": true, /* Enable strict null checks. */
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "removeComments": true /* Do not emit comments to output. */,
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+  },
+  "include": ["lib"]
+}
