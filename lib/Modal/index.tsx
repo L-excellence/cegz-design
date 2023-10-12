@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useForkRef } from "../hooks";
 import classNames from "../utils/classNames";
+import { useLeaveAni } from "../hooks";
 
 const styles: Record<string, React.CSSProperties> = {
   root: {
@@ -20,6 +21,8 @@ const styles: Record<string, React.CSSProperties> = {
     top: 0,
     left: 0,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
+    opacity: 0,
+    transition: "opacity .3s",
     WebkitTapHighlightColor: "transparent",
   },
   invisible: {
@@ -59,15 +62,16 @@ const Modal = ({
   maskInvisible = false,
   disableEscapeKeyDown = false,
 }: IModalProps) => {
+  const { show, stage } = useLeaveAni(open, { enter: 0, leave: 300 });
   const contentRef = React.useRef<HTMLElement>(null);
   const handleRef = useForkRef((children as any).ref, contentRef);
 
   // 聚焦元素
   useEffect(() => {
-    if (!open) return undefined;
+    if (!show) return undefined;
     // 让 children 元素 focus()，以便触发元素 onKeydown 键盘事件.
     contentRef.current!.focus();
-  }, [open]);
+  }, [show]);
 
   // 要想使键盘事件在绑定 DOM 中生效，有一个前提条件是 当前 focus 元素（document.activeElement）在该元素的 DOM Tree 内
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -86,7 +90,7 @@ const Modal = ({
     childProps.tabIndex = children.props.tabIndex || "-1";
   }
 
-  return open
+  return show
     ? ReactDOM.createPortal(
         <div
           className={classNames("cegz-modal", { className })}
@@ -94,11 +98,13 @@ const Modal = ({
           onKeyDown={handleKeyDown}
         >
           <div
+            // className={"cegz-modal-mask " + stage}
             className="cegz-modal-mask"
             onClick={() => onClose(null, "maskClick")}
             style={{
               ...styles.mask,
               ...(maskInvisible ? styles.invisible : {}),
+              opacity: stage === "enter" ? 1 : 0,
             }}
           ></div>
           {center ? (
