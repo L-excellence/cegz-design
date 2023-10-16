@@ -10,7 +10,14 @@ import { resolve } from "path";
  *  - cjs - lib，（这个呢？）
  *  - es - es，（TS 编译输出？）
  * 3. 构建 - TS 输出类型文件 types/**.d.ts（ok）
- * 4. 规范 - 增加 ESLing
+ * 4. 规范 - 增加 ESLint
+ *  - 请注意，Vite 仅执行 .ts 文件的转译工作，并不执行 任何类型检查。并假定类型检查已经被你的 IDE 或构建过程处理了。
+ *  - Vite 使用 esbuild 将 TypeScript 转译到 JavaScript，约是 tsc 速度的 20~30 倍，同时 HMR 更新反映到浏览器的时间小于 50ms。
+ *  - 安装：
+ *    - yarn add eslint eslint-plugin-react @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+ *    - 创建 .eslintrc.js 配置文件
+ *    - 编译不做 eslint 处理，依靠 IDE 检查提示。
+ * 5. CSS 预处理器 - 不需要额外 loader，只需按照预处理器。https://cn.vitejs.dev/guide/features.html#css-pre-processors
  *
  * 组件设计原则：
  * https://juejin.cn/post/7146022961894391821?searchId=2023093017094980AA1247DDB8803430D6

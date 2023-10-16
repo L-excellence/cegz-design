@@ -1,0 +1,78 @@
+.cegz-message {
+  min-width: 380px;
+  box-sizing: border-box;
+  // border-width: 1px solid #ebeef5;
+  position: fixed;
+  z-index: 1500;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: #edf2fc;
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  padding: 15px 15px 15px 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.cegz-message-center {
+  justify-content: center;
+}
+
+.cegz-message__icon {
+  margin-right: 10px;
+  &-info {
+    color: #909399;
+  }
+  &-success {
+    color: #67c23a;
+  }
+  &-warning {
+    color: #e6a23c;
+  }
+  &-error {
+    color: #f56c6c;
+  }
+}
+
+.cegz-message__content {
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+  &-info {
+    color: #909399;
+  }
+  &-success {
+    color: #67c23a;
+  }
+  &-warning {
+    color: #e6a23c;
+  }
+  &-error {
+    color: #f56c6c;
+  }
+}
+
+.cegz-message--success {
+  background-color: #f0f9eb;
+  border-color: #e1f3d8;
+}
+
+.cegz-message--warning {
+  background-color: #fdf6ec;
+  border-color: #faecd8;
+}
+
+.cegz-message--error {
+  background-color: #fef0f0;
+  border-color: #fde2e2;
+}
+
+.cegz-message--loading {
+  background-color: #f0f4ff;
+  border: 1px solid #3370ff;
+  min-width: auto;
+  padding: 10px 20px;
+}

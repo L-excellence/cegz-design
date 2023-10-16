@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useForkRef } from "../hooks";
 import classNames from "../utils/classNames";
-import { useLeaveAni } from "../hooks";
+import { useTransition } from "../hooks";
 
 const styles: Record<string, React.CSSProperties> = {
   root: {
@@ -62,7 +62,7 @@ const Modal = ({
   maskInvisible = false,
   disableEscapeKeyDown = false,
 }: IModalProps) => {
-  const { show, stage } = useLeaveAni(open, { enter: 0, leave: 300 });
+  const { show, stage } = useTransition(open, { enter: 0, leave: 300 });
   const contentRef = React.useRef<HTMLElement>(null);
   const handleRef = useForkRef((children as any).ref, contentRef);
 
