@@ -16,3 +16,6 @@ export { default as Modal } from "./Modal";
 
 export type { IMessageProps } from "./Message";
 export { default as Message } from "./Message";
+
+export type { ITabsProps, ITabsItem } from "./Tabs";
+export { default as Tabs } from "./Tabs";

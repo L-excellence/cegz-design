@@ -1,0 +1,71 @@
+.cegz-tabs {
+  line-height: 1.5714285714285714;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  .cegz-tabs-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 0 16px 0;
+
+    &::before {
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border-bottom: 1px solid #f0f0f0;
+      content: "";
+    }
+
+    .cegz-tabs-nav-list {
+      display: flex;
+      position: relative;
+    }
+
+    .cegz-tabs-tab {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 0;
+      font-size: 14px;
+      background: transparent;
+      cursor: pointer;
+      color: #494949;
+      transition: all 0.3s;
+      & + .cegz-tabs-tab {
+        margin: 0 0 0 32px;
+      }
+      &.cegz-tabs-tab-active {
+        color: #1677ff;
+        text-shadow: 0 0 0.25px currentcolor;
+      }
+    }
+
+    .cegz-tabs-ink-bar {
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      background: #1677ff;
+      pointer-events: none;
+      transform: translateX(-50%);
+      // width、left 采用 JS 动态计算
+      &.cegz-tabs-ink-bar-animated {
+        transition: width 0.3s, left 0.3s;
+      }
+    }
+  }
+
+  .cegz-tabs-content {
+    position: relative;
+
+    .cegz-tabs-tabpane {
+      &.cegz-tabs-tabpane-active {
+        display: block;
+      }
+      &.cegz-tabs-tabpane-hidden {
+        display: none;
+      }
+    }
+  }
+}
